@@ -1,74 +1,83 @@
-# Create a new virtual environment
-python -m venv "D:\Qriocity\Apache Superset\.venv"
+# 📊 StockSight – Apache Superset Stock Market Analysis Dashboard
 
-# Activate the new environment
-"D:\Qriocity\Apache Superset\.venv\Scripts\activate"
+This project is a stock market visualization dashboard built with **Apache Superset** and connected to a **MySQL (or SQLite/SQL Server)** backend for querying historical stock data. It enables interactive analysis of selected stocks using visual tools like line charts, candlestick charts, correlation matrices, and more.
 
-# Install Superset
+---
+
+## 🛠️ Features
+
+- 📈 Visualize trends in price, volume, and performance for 5 companies
+- 🧠 Integrated with RNN-based predictive models (optional extension)
+- ⚡ Real-time slicing and filtering on charts
+- 🛠️ Powered by open-source Apache Superset and SQL database
+- 🎥 [Demo Video](./Assets/Apache%20Superset%20Demo.mp4)
+
+---
+
+## 🚀 Setup Instructions
+
+### 1. Clone the Project
+```bash
+git clone https://github.com/shubh4m-kumar/Stock-Market-Visualization-and-Forecasting-Dashboard-using-Apache-Superset-MySQL-and-RNN-
+
+cd Stock-Market-Visualization-and-Forecasting-Dashboard-using-Apache-Superset-MySQL-and-RNN-
+```
+
+### 2. Create and Activate Virtual Environment
+```bash
+python -m venv "Stock-Market-Visualization-and-Forecasting-Dashboard-using-Apache-Superset-MySQL-and-RNN-
+\.venv"
+"Stock-Market-Visualization-and-Forecasting-Dashboard-using-Apache-Superset-MySQL-and-RNN-
+\.venv\Scripts\activate"
+```
+
+### 3. Install Superset
+```bash
 pip install apache-superset
+```
 
-# Initialize the database
-superset db upgrade
-superset fab create-admin
-superset init
-
+### 4. Set Environment Variables (PowerShell)
+```powershell
 $env:FLASK_APP = "superset"
+$env:SUPERSET_CONFIG_PATH = "Stock-Market-Visualization-and-Forecasting-Dashboard-using-Apache-Superset-MySQL-and-RNN-
+\superset_config.py"
+```
 
-$env:SUPERSET_CONFIG_PATH = "D:\Qriocity\Apache Superset\superset_config.py"
-
-
-superset db init
+### 5. Initialize Superset
+```bash
 superset db upgrade
-SQLALCHEMY_DATABASE_URI = 'sqlite:///D:\\Qriocity\\Apache Superset\\stock_data.db'
+superset fab create-admin  # Create admin user
+superset init
+```
 
+### 6. Database Configuration
+
+Edit `superset_config.py` or set one of the following:
+
+#### For SQLite
+```python
+SQLALCHEMY_DATABASE_URI = 'sqlite:///D:\Qriocity\Apache Superset\stock_data.db'
+```
+
+#### For SQL Server
+```python
 SQLALCHEMY_DATABASE_URI = r'mssql+pyodbc://@localhost/master?driver=ODBC Driver 17 for SQL Server;Trusted_Connection=yes;'
+```
 
+### 7. Run Superset
+```bash
+superset run -p 8088 --with-threads --reload --debugger
+```
 
+Now visit `http://localhost:8088` in your browser and log in using the admin credentials you created.
 
-CREATE TABLE alembic_version (
-    version_num VARCHAR(32) NOT NULL,
-    CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num)
-);
+---
 
+## 🧠 About
 
-ERROR [flask_migrate] Error: Online migration expected to match one row when updating 'bb51420eaf83' to 'b4456560d4f3' in 'alembic_version'; 0 found
+This project was built as part of a data visualization + analytics stack for analyzing and predicting stock market behavior in a unified platform using **Apache Superset**, **SQL**, and optionally **RNN models** for future forecasting.
 
-insert_query = "INSERT INTO alembic_version (version_num) VALUES ('bb51420eaf83');"
+---
 
-
-git clone https://github.com/coleifer/peewee.git
-cd peewee
-python setup.py install
-
-ALTER TABLE stock_data
-ADD Dividend FLOAT;
-
-ALTER TABLE stock_data
-ADD EPS FLOAT;
-
-ALTER TABLE stock_data
-ADD [PE Ratio] FLOAT;
-
-ALTER TABLE stock_data
-ADD Beta FLOAT;
-
-ALTER TABLE stock_data
-ADD [Adjusted Close] FLOAT;
-
-ALTER TABLE stock_data
-ADD [Daily Price Range] FLOAT,
-    [Daily Price Change] FLOAT,
-    [Daily Price Change Percentage] FLOAT,
-    [Total Dollar Volume] FLOAT,
-    [Volume Weighted Average Price (VWAP)] FLOAT,
-    [Price Range Percentage] FLOAT,
-    [Daily Return] FLOAT,
-    [50-day SMA] FLOAT,
-    [200-day SMA] FLOAT,
-    [12-day EMA] FLOAT,
-    [26-day EMA] FLOAT,
-    [MACD Line] FLOAT,
-    [9-day EMA of MACD] FLOAT,
-    [MACD Histogram] FLOAT,
-    [Volatility] FLOAT;
-
+## 📬 Contact
+📫 Reach out: shubhambpn1234@gmail.com
