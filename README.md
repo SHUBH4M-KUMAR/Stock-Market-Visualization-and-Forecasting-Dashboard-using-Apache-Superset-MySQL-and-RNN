@@ -7,7 +7,7 @@ This project is a stock market visualization dashboard built with **Apache Super
 ## 🛠️ Features
 
 - 📈 Visualize trends in price, volume, and performance for 5 companies
-- 🧠 Integrated with RNN-based predictive models (optional extension)
+- 🧠 Integrated with RNN-based predictive models (extension)
 - ⚡ Real-time slicing and filtering on charts
 - 🛠️ Powered by open-source Apache Superset and SQL database
 - 🎥 [Demo Video](./Assests/Apache%20Superset%20Demo.mp4)
